@@ -329,5 +329,4 @@ create_winapps_conf
 start_winapps_container
 
 echo "Install-helper finished successfully."
-
-xdg-open "http://127.0.0.1:8006" >/dev/null 2>&1 || echo "Could not open browser. Please open http://127.0.0.1:8006 manually."
+echo "Open your browser and go to: http://127.0.0.1:8006"
