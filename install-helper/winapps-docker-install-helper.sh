@@ -319,6 +319,7 @@ EOF
   echo "Created ~/.config/winapps/winapps.conf with your Windows credentials."
 }
 
+
 # Run all steps
 install_docker
 install_docker_compose
