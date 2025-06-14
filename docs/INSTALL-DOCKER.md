@@ -1,6 +1,46 @@
 # Winapps-Docker-Installation
 <details open>
-<summary>Final Configuration Steps</summary>
+<summary>Step 1: Install Dependencies</summary>
+
+Install the required dependencies.
+- Debian/Ubuntu:
+    ```bash
+    sudo apt install -y curl dialog freerdp3-x11 git iproute2 libnotify-bin netcat-openbsd
+    ```
+
+> [!NOTE]
+> On Debian you need to enable the `backports` repository for the `freerdp3-x11` package to become available.
+> For instructions, see https://backports.debian.org/Instructions.
+
+- Fedora/RHEL:
+    ```bash
+    sudo dnf install -y curl dialog freerdp git iproute libnotify nmap-ncat
+    ```
+- Arch Linux:
+    ```bash
+    sudo pacman -Syu --needed -y curl dialog freerdp git iproute2 libnotify gnu-netcat
+    ```
+- OpenSUSE:
+    ```bash
+    sudo zypper install -y curl dialog freerdp git iproute2 libnotify-tools netcat-openbsd
+    ```
+- Gentoo Linux:
+    ```bash
+    sudo emerge --ask=n net-misc/curl dev-util/dialog net-misc/freerdp:3 dev-vcs/git sys-apps/iproute2 x11-libs/libnotify net-analyzer/openbsd-netcat
+    ```
+
+> [!NOTE]
+> WinApps requires `FreeRDP` version 3 or later. If not available for your distribution through your package manager, you can install the [Flatpak](https://flathub.org/apps/com.freerdp.FreeRDP):
+> ```bash
+> flatpak install flathub com.freerdp.FreeRDP
+> sudo flatpak override --filesystem=home com.freerdp.FreeRDP # To use `+home-drive`
+> ```
+> However, if you have weird issues like [#233](https://github.com/winapps-org/winapps/issues/233) when running Flatpak, please compile FreeRDP from source according to [this guide](https://github.com/FreeRDP/FreeRDP/wiki/Compilation).
+
+</details>
+
+<details>
+<summary>Windows Configuration Steps</summary>
 
 Download [VirtIO drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win.iso)
 Once in Windows open File Explorer and got to Network and find your Linux Home directory.
@@ -127,46 +167,6 @@ bash <(curl https://raw.githubusercontent.com/winapps-org/winapps/main/setup.sh)
 ```
 
 You can search Windows VM for Advanced System Properties and change Performance Settings. And configure pagefile.
-
-</details>
-
-<details>
-<summary>Step 1: Install Dependencies</summary>
-
-Install the required dependencies.
-- Debian/Ubuntu:
-    ```bash
-    sudo apt install -y curl dialog freerdp3-x11 git iproute2 libnotify-bin netcat-openbsd
-    ```
-
-> [!NOTE]
-> On Debian you need to enable the `backports` repository for the `freerdp3-x11` package to become available.
-> For instructions, see https://backports.debian.org/Instructions.
-
-- Fedora/RHEL:
-    ```bash
-    sudo dnf install -y curl dialog freerdp git iproute libnotify nmap-ncat
-    ```
-- Arch Linux:
-    ```bash
-    sudo pacman -Syu --needed -y curl dialog freerdp git iproute2 libnotify gnu-netcat
-    ```
-- OpenSUSE:
-    ```bash
-    sudo zypper install -y curl dialog freerdp git iproute2 libnotify-tools netcat-openbsd
-    ```
-- Gentoo Linux:
-    ```bash
-    sudo emerge --ask=n net-misc/curl dev-util/dialog net-misc/freerdp:3 dev-vcs/git sys-apps/iproute2 x11-libs/libnotify net-analyzer/openbsd-netcat
-    ```
-
-> [!NOTE]
-> WinApps requires `FreeRDP` version 3 or later. If not available for your distribution through your package manager, you can install the [Flatpak](https://flathub.org/apps/com.freerdp.FreeRDP):
-> ```bash
-> flatpak install flathub com.freerdp.FreeRDP
-> sudo flatpak override --filesystem=home com.freerdp.FreeRDP # To use `+home-drive`
-> ```
-> However, if you have weird issues like [#233](https://github.com/winapps-org/winapps/issues/233) when running Flatpak, please compile FreeRDP from source according to [this guide](https://github.com/FreeRDP/FreeRDP/wiki/Compilation).
 
 </details>
 
