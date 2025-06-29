@@ -1,18 +1,20 @@
 1. Add font Unaego
-2. Add App icon
-3. Add App banner on welcome screen.
-4. Unify the style across all windows.
-5. Rename DistroSelection to DistroDetection
+2. User app launcher in linux with all needed features. Like start or shutdown Windows and add or remove apps with gui which shows all currently installed apps. Edit config files.
 
 Steps>
-Step 0: Welcome Screen
+Step 0: Welcome Screen (!!! Add button "Uninstall WinApp" Which will open Uninstall Step 1.)
 Step 1: Compatibility Check
 Step 2: Dependency Install
-Step 3: Create config files (User should be seeing the input fields and on hover there should be explanation.)
-        After user has done filling config files they should be created at. If they exist already they should be overwritten.
+Step 3: Config creator (User should be seeing the input fields and on hover there should be explanation.)
+        After user has done filling config files they should be created at:
         Create compose.yaml at ~/.config/winapps/compose.yaml
         Create winapps.conf at ~/.config/winapps/winapps.conf
+        
+        At the start of config creator it check for files and If files already exist at that path user should be noted that he must remove previous windows installation before installing it a new.
         
 Step : Select Installation backend `docker`, `podman`, `libvirt`
 Step : Install Windows
 Step : Configure Windows (Create Windows app that will do things automatically once inside windows.)
+
+Uninstall Steps>
+Uninstall Step 1: Commands for WinApps removal smt like "sudo rm something somewhere" + Info for nixos + Finish button which will return to Step 0.
