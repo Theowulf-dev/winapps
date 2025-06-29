@@ -10,7 +10,7 @@ Step 3: Config creator (User should be seeing the input fields and on hover ther
         Create compose.yaml at ~/.config/winapps/compose.yaml
         Create winapps.conf at ~/.config/winapps/winapps.conf
         
-        At the start of config creator it check for files and If files already exist at that path user should be noted that he must remove previous windows installation before installing it a new.
+        At the start of config creator it checks for files and If files already exist at that path user should be noted that he must remove previous windows installation before installing it a new.
         
 Step : Select Installation backend `docker`, `podman`, `libvirt`
 Step : Install Windows
