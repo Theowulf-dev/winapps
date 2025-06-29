@@ -1,6 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace WinAppsInstaller.ViewModels;
+namespace WinAppsInstallAssistant.ViewModels;
 
 public class ViewModelBase : ObservableObject
 {

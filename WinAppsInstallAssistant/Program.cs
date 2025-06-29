@@ -1,7 +1,7 @@
 using Avalonia;
 using System;
 
-namespace WinAppsInstaller;
+namespace WinAppsInstallAssistant;
 
 sealed class Program
 {

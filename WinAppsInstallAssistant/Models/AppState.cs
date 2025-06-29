@@ -1,4 +1,4 @@
-namespace WinAppsInstaller.Models;
+namespace WinAppsInstallAssistant.Models;
 
 public class AppState
 {

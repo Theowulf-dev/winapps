@@ -1,9 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using WinAppsInstaller.ViewModels;
+using WinAppsInstallAssistant.ViewModels;
 
-namespace WinAppsInstaller;
+namespace WinAppsInstallAssistant;
 
 public class ViewLocator : IDataTemplate
 {

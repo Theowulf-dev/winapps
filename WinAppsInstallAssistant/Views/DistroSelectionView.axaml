@@ -1,0 +1,60 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:WinAppsInstallAssistant.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="WinAppsInstallAssistant.Views.DistroSelectionView"
+             x:DataType="vm:DistroSelectionViewModel">
+
+    <Border Padding="30"
+            Background="LightGray"
+            CornerRadius="12"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="750"
+            Height="400">
+        <StackPanel Spacing="20"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <Border Padding="30"
+                    Background="LemonChiffon"
+                    CornerRadius="12"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                <Image Source="../Assets/WinAppsBanner.png"
+                       Width="550"
+                       Height="100"
+                       Stretch="Uniform"/>
+            </Border>
+            
+            <TextBlock Text="Step 1: Compatibility" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" />
+
+            <TextBlock Text="Detected ID_LIKE from /etc/os-release:" FontWeight="SemiBold">
+                <TextBlock Text="{Binding IdLike}" FontStyle="Italic" Foreground="DarkOrange" />
+            </TextBlock>
+
+            <TextBlock Text="{Binding StatusMessage}"
+                       TextWrapping="Wrap"
+                       Foreground="{Binding StatusForeground}" />
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Button Content="Back"
+                        HorizontalContentAlignment="Center"
+                        Command="{Binding ContinueCommand}"
+                        Width="220"
+                        HorizontalAlignment="Center"
+                        Padding="10,6" />
+            
+                <Button Content="Continue"
+                        HorizontalContentAlignment="Center"
+                        Command="{Binding ContinueCommand}"
+                        IsVisible="{Binding IsSupported}"
+                        Width="220"
+                        HorizontalAlignment="Center"
+                        Padding="10,6" />
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</UserControl>

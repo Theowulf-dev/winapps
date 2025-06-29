@@ -1,7 +1,7 @@
 using Avalonia;
 using CommunityToolkit.Mvvm.Input;
 
-namespace WinAppsInstaller.ViewModels;
+namespace WinAppsInstallAssistant.ViewModels;
 
 public partial class WelcomeViewModel : ViewModelBase
 {

@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace WinAppsInstaller.Views;
+namespace WinAppsInstallAssistant.Views;
 
 public partial class DistroSelectionView : UserControl
 {

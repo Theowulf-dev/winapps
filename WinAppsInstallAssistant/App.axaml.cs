@@ -3,10 +3,10 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
 using Avalonia.Markup.Xaml;
-using WinAppsInstaller.ViewModels;
-using WinAppsInstaller.Views;
+using WinAppsInstallAssistant.ViewModels;
+using WinAppsInstallAssistant.Views;
 
-namespace WinAppsInstaller;
+namespace WinAppsInstallAssistant;
 
 public class App : Application
 {

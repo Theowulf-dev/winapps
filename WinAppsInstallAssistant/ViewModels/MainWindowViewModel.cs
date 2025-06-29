@@ -1,6 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace WinAppsInstaller.ViewModels;
+namespace WinAppsInstallAssistant.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
@@ -10,6 +10,6 @@ public partial class MainWindowViewModel : ViewModelBase
     public MainWindowViewModel()
     {
         // Here is starting ViewModel that will be displayed first in MainWindow.
-        CurrentViewModel = new TerminalViewModel();
+        CurrentViewModel = new WelcomeViewModel();
     }
 }

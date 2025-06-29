@@ -2,9 +2,9 @@ using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Avalonia.Threading;
-using WinAppsInstaller.Models;
+using WinAppsInstallAssistant.Models;
 
-namespace WinAppsInstaller.ViewModels;
+namespace WinAppsInstallAssistant.ViewModels;
 
 public partial class DependencyInstallViewModel : ViewModelBase
 {

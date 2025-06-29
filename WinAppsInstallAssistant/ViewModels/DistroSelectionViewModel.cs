@@ -5,9 +5,9 @@ using System.Linq;
 using Avalonia.Media;
 using Avalonia;
 using CommunityToolkit.Mvvm.Input;
-using WinAppsInstaller.Models;
+using WinAppsInstallAssistant.Models;
 
-namespace WinAppsInstaller.ViewModels;
+namespace WinAppsInstallAssistant.ViewModels;
 
 public partial class DistroSelectionViewModel : ViewModelBase
 {
