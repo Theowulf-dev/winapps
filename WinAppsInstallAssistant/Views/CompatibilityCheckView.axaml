@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:WinAppsInstallAssistant.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="WinAppsInstallAssistant.Views.DistroSelectionView"
-             x:DataType="vm:DistroSelectionViewModel">
+             x:Class="WinAppsInstallAssistant.Views.CompatibilityCheckView"
+             x:DataType="vm:CompatibilityCheckViewModel">
 
     <Border Padding="30"
             Background="LightGray"
@@ -17,21 +17,18 @@
         <StackPanel Spacing="20"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-            <Border Padding="30"
-                    Background="LemonChiffon"
-                    CornerRadius="12"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
-                <Image Source="../Assets/WinAppsBanner.png"
-                       Width="550"
-                       Height="100"
-                       Stretch="Uniform"/>
-            </Border>
             
-            <TextBlock Text="Step 1: Compatibility" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" />
+            <TextBlock Text="Step 1: Compatibility Check"
+                       FontSize="28"
+                       FontWeight="Bold"
+                       TextAlignment="Center"
+                       HorizontalAlignment="Center" />
 
-            <TextBlock Text="Detected ID_LIKE from /etc/os-release:" FontWeight="SemiBold">
-                <TextBlock Text="{Binding IdLike}" FontStyle="Italic" Foreground="DarkOrange" />
+            <TextBlock Text="Detected ID_LIKE from /etc/os-release: "
+                       FontWeight="SemiBold">
+                <TextBlock Text="{Binding IdLike}"
+                           FontStyle="Italic"
+                           Foreground="DarkOrange" />
             </TextBlock>
 
             <TextBlock Text="{Binding StatusMessage}"
@@ -42,7 +39,7 @@
                         HorizontalAlignment="Center">
                 <Button Content="Back"
                         HorizontalContentAlignment="Center"
-                        Command="{Binding ContinueCommand}"
+                        Command="{Binding BackCommand}"
                         Width="220"
                         HorizontalAlignment="Center"
                         Padding="10,6" />

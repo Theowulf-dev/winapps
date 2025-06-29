@@ -6,7 +6,7 @@
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-        <RootNamespace>WinAppsInstaller</RootNamespace>
+        <RootNamespace>WinAppsInstallAssistant</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -24,5 +24,11 @@
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\CompatibilityCheckView.axaml.cs">
+        <DependentUpon>CompatibilityCheckView.axaml</DependentUpon>
+      </Compile>
     </ItemGroup>
 </Project>

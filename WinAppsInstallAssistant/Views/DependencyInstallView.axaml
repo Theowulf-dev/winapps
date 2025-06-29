@@ -6,37 +6,57 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="WinAppsInstallAssistant.Views.DependencyInstallView"
              x:DataType="vm:DependencyInstallViewModel">
+    
+    <Border Padding="30"
+            Background="LightGray"
+            CornerRadius="12"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="750"
+            Height="400">
+        <StackPanel Spacing="20"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            
+            <TextBlock Text="Step 2: Dependency Install"
+                       FontSize="28"
+                       FontWeight="Bold"
+                       TextAlignment="Center"
+                       HorizontalAlignment="Center" />
 
-  <UserControl.Styles>
-    <Style Selector="TextBox">
-      <Setter Property="FontFamily" Value="Consolas, Courier New, monospace"/>
-      <Setter Property="FontSize" Value="13"/>
-      <Setter Property="Padding" Value="5"/>
-    </Style>
-  </UserControl.Styles>
-
-
-
-  <StackPanel Margin="20" Spacing="15">
-
-    <TextBlock Text="Installing Dependencies" FontSize="20" FontWeight="Bold" />
-
-    <TextBlock Text="The commands below are detected for your Linux distribution. Copy and paste them into your terminal to install dependencies."
-               FontStyle="Italic"/>
-
-    <!-- Scrollable output console showing commands -->
-    <ScrollViewer MaxHeight="300" VerticalScrollBarVisibility="Auto">
-      <TextBox
-          Name="InstallOutputBox"
-          Text="{Binding InstallOutput, Mode=OneWay}"
-          IsReadOnly="True"
-          AcceptsReturn="True"
-          TextWrapping="Wrap" />
-    </ScrollViewer>
-
-    <TextBlock Text="Commands ready to be copied."
-               FontWeight="Bold"
-               IsVisible="{Binding IsInstallDone}" />
-
-  </StackPanel>
+            <TextBlock Text="The commands below are detected for your Linux distribution."
+                       FontStyle="Italic"
+                       TextAlignment="Center"/>
+            
+            <TextBlock Text="Copy and paste them into terminal to install dependencies."
+                       FontStyle="Italic"
+                       TextAlignment="Center"/>
+            
+            <ScrollViewer Height="150"
+                          Width="600"
+                          VerticalScrollBarVisibility="Auto">
+                <TextBox
+                    Text="{Binding InstallOutput, Mode=OneWay}"
+                    IsReadOnly="True"
+                    TextWrapping="Wrap"/>
+            </ScrollViewer>
+            
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Button Content="Back"
+                        HorizontalContentAlignment="Center"
+                        Command="{Binding BackCommand}"
+                        Width="220"
+                        HorizontalAlignment="Center"
+                        Padding="10,6" />
+            
+                <Button Content="Continue"
+                        HorizontalContentAlignment="Center"
+                        Command="{Binding ContinueCommand}"
+                        Width="220"
+                        HorizontalAlignment="Center"
+                        Padding="10,6" />
+            </StackPanel>
+        </StackPanel>
+    </Border>
 </UserControl>

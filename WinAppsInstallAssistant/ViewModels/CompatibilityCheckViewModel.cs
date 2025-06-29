@@ -9,7 +9,7 @@ using WinAppsInstallAssistant.Models;
 
 namespace WinAppsInstallAssistant.ViewModels;
 
-public partial class DistroSelectionViewModel : ViewModelBase
+public partial class CompatibilityCheckViewModel : ViewModelBase
 {
     private static readonly string[] SupportedFamilies =
     [
@@ -27,7 +27,7 @@ public partial class DistroSelectionViewModel : ViewModelBase
 
     public IBrush StatusForeground => IsSupported ? Brushes.Green : Brushes.Red;
 
-    public DistroSelectionViewModel()
+    public CompatibilityCheckViewModel()
     {
         LoadDistroInfo();
     }
@@ -70,7 +70,7 @@ public partial class DistroSelectionViewModel : ViewModelBase
 
         if (matched != null)
         {
-            StatusMessage = $"Detected supported distro family: {matched}";
+            StatusMessage = $"{matched} : Is supported distro family";
             IsSupported = true;
         }
         else
@@ -86,7 +86,16 @@ public partial class DistroSelectionViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private void Continue()
+    private static void Back()
+    {
+        if (Application.Current is App { MainWindow.DataContext: MainWindowViewModel main })
+        {
+            main.CurrentViewModel = new WelcomeViewModel();
+        }
+    }
+    
+    [RelayCommand]
+    private static void Continue()
     {
         if (Application.Current is App { MainWindow.DataContext: MainWindowViewModel main })
         {

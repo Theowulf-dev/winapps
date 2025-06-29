@@ -1,7 +1,9 @@
 using System.Text;
 using System.Threading.Tasks;
+using Avalonia;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Avalonia.Threading;
+using CommunityToolkit.Mvvm.Input;
 using WinAppsInstallAssistant.Models;
 
 namespace WinAppsInstallAssistant.ViewModels;
@@ -12,24 +14,13 @@ public partial class DependencyInstallViewModel : ViewModelBase
 
     [ObservableProperty]
     private string? _installOutput;
-
-    [ObservableProperty]
-    private bool _isInstallDone;
-
-    public bool CanInstall => !IsInstallDone;
-
-    partial void OnIsInstallDoneChanged(bool value)
-    {
-        OnPropertyChanged(nameof(CanInstall));
-    }
-
-
+    
     public DependencyInstallViewModel()
     {
         // Show commands immediately on view model creation
         _ = LoadInstallCommandsAsync();
     }
-
+    
     private void AppendOutput(string text)
     {
         Dispatcher.UIThread.Post(() =>
@@ -41,7 +32,6 @@ public partial class DependencyInstallViewModel : ViewModelBase
 
     private Task LoadInstallCommandsAsync()
     {
-        IsInstallDone = false;
         _outputBuilder.Clear();
 
         var idLike = AppState.Instance.IdLike?.ToLowerInvariant() ?? "";
@@ -49,16 +39,14 @@ public partial class DependencyInstallViewModel : ViewModelBase
         string commands = idLike switch
         {
             var s when s.Contains("debian") || s.Contains("ubuntu") => @"
-echo ""Checking if backports are enabled for freerdp3-x11...""
+echo ""Check if backports are enabled for freerdp3-x11...""
 if ! grep -r ""buster-backports"" /etc/apt/sources.list* > /dev/null; then
   echo ""Backports not found. You might want to enable backports to get freerdp3-x11.""
   echo ""See: https://backports.debian.org/Instructions/""
 fi
 
-echo ""Updating package lists...""
 sudo apt update
 
-echo ""Installing packages...""
 sudo apt install -y curl dialog freerdp3-x11 git iproute2 libnotify-bin netcat-openbsd
 ",
 
@@ -82,8 +70,25 @@ sudo emerge --ask=n net-misc/curl dev-util/dialog net-misc/freerdp:3 dev-vcs/git
         };
 
         AppendOutput(commands.Trim());
-
-        IsInstallDone = true;
+        
         return Task.CompletedTask;
+    }
+    
+    [RelayCommand]
+    private static void Back()
+    {
+        if (Application.Current is App { MainWindow.DataContext: MainWindowViewModel main })
+        {
+            main.CurrentViewModel = new CompatibilityCheckViewModel();
+        }
+    }
+    
+    [RelayCommand]
+    private static void Continue()
+    {
+        if (Application.Current is App { MainWindow.DataContext: MainWindowViewModel main })
+        {
+            main.CurrentViewModel = new DependencyInstallViewModel();
+        }
     }
 }

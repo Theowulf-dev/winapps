@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace WinAppsInstallAssistant.Views;
 
-public partial class DistroSelectionView : UserControl
+public partial class CompatibilityCheckView : UserControl
 {
-    public DistroSelectionView()
+    public CompatibilityCheckView()
     {
         InitializeComponent();
     }

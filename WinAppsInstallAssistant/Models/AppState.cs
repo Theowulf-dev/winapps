@@ -8,6 +8,5 @@ public class AppState
     private AppState() { }
 
     public string? IdLike { get; set; }
-
-    // Add more global installer state later as needed
+    
 }

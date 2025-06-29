@@ -32,7 +32,7 @@
                        TextAlignment="Center"
                        HorizontalAlignment="Center" />
 
-            <TextBlock Text="Set up Windows applications on your Linux system."
+            <TextBlock Text="Integrate Windows applications into your Linux system."
                        FontSize="16"
                        TextAlignment="Center"
                        TextWrapping="Wrap"

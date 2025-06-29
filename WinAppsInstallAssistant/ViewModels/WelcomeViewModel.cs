@@ -10,7 +10,7 @@ public partial class WelcomeViewModel : ViewModelBase
     {
         if (Application.Current is App { MainWindow.DataContext: MainWindowViewModel main })
         {
-            main.CurrentViewModel = new DistroSelectionViewModel();
+            main.CurrentViewModel = new CompatibilityCheckViewModel();
         }
     }
 }
