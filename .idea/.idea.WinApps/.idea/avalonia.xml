@@ -3,6 +3,7 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="WinAppsInstallAssistant/Views/ConfigCreatorView.axaml" value="WinAppsInstallAssistant/WinAppsInstallAssistant.csproj" />
         <entry key="WinAppsInstallAssistant/Views/DependencyInstallView.axaml" value="WinAppsInstallAssistant/WinAppsInstallAssistant.csproj" />
         <entry key="WinAppsInstallAssistant/Views/DistroDetectionView.axaml" value="WinAppsInstallAssistant/WinAppsInstallAssistant.csproj" />
         <entry key="WinAppsInstallAssistant/Views/DistroSelectionView.axaml" value="WinAppsInstallAssistant/WinAppsInstallAssistant.csproj" />

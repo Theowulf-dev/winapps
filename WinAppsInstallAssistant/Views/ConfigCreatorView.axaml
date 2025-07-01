@@ -1,0 +1,138 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:WinAppsInstallAssistant.ViewModels"
+             mc:Ignorable="d"
+             x:Class="WinAppsInstallAssistant.Views.ConfigCreatorView"
+             DataContext="{DynamicResource ConfigCreatorViewModel}"
+             x:DataType="vm:ConfigCreatorViewModel">
+
+  <UserControl.Resources>
+    <vm:ConfigCreatorViewModel x:Key="ConfigCreatorViewModel" />
+  </UserControl.Resources>
+
+  <StackPanel Margin="15" Spacing="8">
+    
+    <TextBlock Text="{Binding ExistingConfigWarning}" Foreground="Red" FontWeight="Bold" 
+               IsVisible="{Binding ExistingConfigWarning, Converter={StaticResource NullToBoolConverter}}" />
+    
+    <ScrollViewer MaxHeight="600">
+    <StackPanel Spacing="12">
+
+      <!-- Each input with label and tooltip -->
+      <StackPanel>
+        <TextBlock Text="Windows Username (RDP_USER)" />
+        <TextBox Text="{Binding RdpUser, Mode=TwoWay}" 
+                 ToolTip.Tip="{Binding HelpTexts[RdpUser]}" />
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="Windows Password (RDP_PASS)" />
+        <TextBox Text="{Binding RdpPass, Mode=TwoWay}" 
+                 ToolTip.Tip="{Binding HelpTexts[RdpPass]}"
+                 PasswordChar="*"/>
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="Windows Domain (RDP_DOMAIN)" />
+        <TextBox Text="{Binding RdpDomain, Mode=TwoWay}" 
+                 ToolTip.Tip="{Binding HelpTexts[RdpDomain]}" />
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="Windows IPv4 Address (RDP_IP)" />
+        <TextBox Text="{Binding RdpIp, Mode=TwoWay}" 
+                 ToolTip.Tip="{Binding HelpTexts[RdpIp]}" />
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="VM Name (VM_NAME)" />
+        <TextBox Text="{Binding VmName, Mode=TwoWay}" 
+                 ToolTip.Tip="{Binding HelpTexts[VmName]}" />
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="WinApps Backend (WAFLAVOR)" />
+        <ComboBox SelectedItem="{Binding Waflavor, Mode=TwoWay}" ToolTip.Tip="{Binding HelpTexts[Waflavor]}">
+          <ComboBoxItem>docker</ComboBoxItem>
+          <ComboBoxItem>podman</ComboBoxItem>
+          <ComboBoxItem>libvirt</ComboBoxItem>
+          <ComboBoxItem>manual</ComboBoxItem>
+        </ComboBox>
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="Display Scaling Factor (RDP_SCALE)" />
+        <ComboBox SelectedItem="{Binding RdpScale, Mode=TwoWay}" ToolTip.Tip="{Binding HelpTexts[RdpScale]}">
+          <ComboBoxItem>100</ComboBoxItem>
+          <ComboBoxItem>140</ComboBoxItem>
+          <ComboBoxItem>180</ComboBoxItem>
+        </ComboBox>
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="Removable Media Path (REMOVABLE_MEDIA)" />
+        <TextBox Text="{Binding RemovableMedia, Mode=TwoWay}" 
+                 ToolTip.Tip="{Binding HelpTexts[RemovableMedia]}" />
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="Additional FreeRDP Flags (RDP_FLAGS)" />
+        <TextBox Text="{Binding RdpFlags, Mode=TwoWay}" 
+                 ToolTip.Tip="{Binding HelpTexts[RdpFlags]}" />
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="Debug WinApps (DEBUG)" />
+        <ComboBox SelectedItem="{Binding Debug, Mode=TwoWay}" ToolTip.Tip="{Binding HelpTexts[Debug]}">
+          <ComboBoxItem>true</ComboBoxItem>
+          <ComboBoxItem>false</ComboBoxItem>
+        </ComboBox>
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="Automatically Pause Windows (AUTOPAUSE)" />
+        <ComboBox SelectedItem="{Binding Autopause, Mode=TwoWay}" ToolTip.Tip="{Binding HelpTexts[Autopause]}">
+          <ComboBoxItem>on</ComboBoxItem>
+          <ComboBoxItem>off</ComboBoxItem>
+        </ComboBox>
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="Automatically Pause Timeout (AUTOPAUSE_TIME)" />
+        <TextBox Text="{Binding AutopauseTime, Mode=TwoWay}" 
+                 ToolTip.Tip="{Binding HelpTexts[AutopauseTime]}" />
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="FreeRDP Command (FREERDP_COMMAND)" />
+        <TextBox Text="{Binding FreerdpCommand, Mode=TwoWay}" 
+                 ToolTip.Tip="{Binding HelpTexts[FreerdpCommand]}" />
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="Port Timeout (PORT_TIMEOUT)" />
+        <TextBox Text="{Binding PortTimeout, Mode=TwoWay}" 
+                 ToolTip.Tip="{Binding HelpTexts[PortTimeout]}" />
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="RDP Connection Timeout (RDP_TIMEOUT)" />
+        <TextBox Text="{Binding RdpTimeout, Mode=TwoWay}" 
+                 ToolTip.Tip="{Binding HelpTexts[RdpTimeout]}" />
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="Application Scan Timeout (APP_SCAN_TIMEOUT)" />
+        <TextBox Text="{Binding AppScanTimeout, Mode=TwoWay}" 
+                 ToolTip.Tip="{Binding HelpTexts[AppScanTimeout]}" />
+      </StackPanel>
+
+    </StackPanel>
+    </ScrollViewer>
+
+    <Button Content="Save Configuration" Command="{Binding SaveConfigCommand}" Width="150" HorizontalAlignment="Left"/>
+
+  </StackPanel>
+</UserControl>

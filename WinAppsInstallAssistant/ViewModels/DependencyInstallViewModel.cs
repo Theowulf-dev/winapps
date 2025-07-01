@@ -88,7 +88,7 @@ sudo emerge --ask=n net-misc/curl dev-util/dialog net-misc/freerdp:3 dev-vcs/git
     {
         if (Application.Current is App { MainWindow.DataContext: MainWindowViewModel main })
         {
-            main.CurrentViewModel = new DependencyInstallViewModel();
+            main.CurrentViewModel = new ConfigCreatorViewModel();
         }
     }
 }
